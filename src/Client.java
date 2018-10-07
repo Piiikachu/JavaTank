@@ -13,13 +13,16 @@ public class Client extends Frame {
 
 
     public List<Wall> walls=new ArrayList<>();
-    public Tank heroTank=new Tank(GAME_X + WIDTH - Tank.WIDTH, GAME_Y + HEIGHT - Tank.HEIGHT, true, this);
+    //public Tank heroTank=new Tank(GAME_X + WIDTH - Tank.WIDTH, GAME_Y + HEIGHT - Tank.HEIGHT, true, this);
 
+    public Tank heroTank=new Tank(WIDTH - Tank.WIDTH, HEIGHT - Tank.HEIGHT, true, this);
     public Client(){
         Wall w1=new Wall(300,200,10,150);
         Wall w2=new Wall(300,200,200,15);
+        //Wall w3=new Wall(790,200,10,150);
         walls.add(w1);
         walls.add(w2);
+        //walls.add(w3);
     }
 
     public void paint(Graphics g){
@@ -47,7 +50,7 @@ public class Client extends Frame {
                 System.exit(0);
             }
         });
-        this.setResizable(false);
+        this.setResizable(true);
         this.setVisible(true);
 
         Thread tankThread=new Thread(new PaintThread());
